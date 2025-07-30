@@ -16,7 +16,7 @@ function TaskList() {
     return (
         <div>
             {tasks.map(task => (
-                <TaskItem key={task.id} title={task.title} />
+                <TaskItem key={task.id} title={task.title} completed={task.completed}/>
             ))}
         </div>
     );
