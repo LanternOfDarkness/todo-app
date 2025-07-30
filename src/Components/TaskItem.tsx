@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-function TaskItem(props: { title: string }) {
-    const [completed, setCompleted] = useState(false);
+function TaskItem(props: { title: string; completed: boolean }) {
+    const [completed, setCompleted] = useState(props.completed);
 
     return (
         <div>
@@ -12,3 +12,5 @@ function TaskItem(props: { title: string }) {
         </div>
     );
 }
+
+export default TaskItem;
