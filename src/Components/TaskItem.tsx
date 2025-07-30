@@ -12,3 +12,5 @@ function TaskItem(props: { title: string }) {
         </div>
     );
 }
+
+export default TaskItem;
