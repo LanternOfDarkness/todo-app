@@ -22,7 +22,17 @@ function TaskList() {
         const id = Date.now();
         setTasks([...tasks, { id, title: newTaskTitle, completed: false }]);
         setTaskTitle("");
-    }
+    };
+
+    const toggleTask = (id: number) => {
+        setTasks(prev =>
+            prev.map(task =>
+              task.id === id
+                ? { ...task, completed: !task.completed }
+                : task
+            )
+          );
+    };
 
     return (
         <div>
@@ -31,7 +41,7 @@ function TaskList() {
                 <button type="submit">Add task</button>
             </form>
             {tasks.map(task => (
-                <TaskItem key={task.id} title={task.title} completed={task.completed} />
+                <TaskItem key={task.id} title={task.title} completed={task.completed} onToggle={() => toggleTask(task.id)} />
             ))}
         </div>
     );
