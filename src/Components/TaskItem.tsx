@@ -1,13 +1,9 @@
-import { useState } from "react";
-
-function TaskItem(props: { title: string; completed: boolean }) {
-    const [completed, setCompleted] = useState(props.completed);
-
+function TaskItem(props: { title: string; completed: boolean, onToggle: any }) {
     return (
         <div>
             <h1>{props.title}</h1>
-            <button onClick={() => setCompleted(!completed)}>
-                {completed ? "✅ Завершено" : "⬜ Активне"}
+            <button onClick={props.onToggle}>
+                {props.completed ? "✅ Завершено" : "⬜ Активне"}
             </button>
         </div>
     );
